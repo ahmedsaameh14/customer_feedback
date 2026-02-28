@@ -13,5 +13,7 @@ app.use(express.json());
 
 connectDB();
 
+app.use('/api/feedback' , require('./route/feedback.route'))
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT , () => console.log(`🚀 Server Started at port ${PORT}`))
