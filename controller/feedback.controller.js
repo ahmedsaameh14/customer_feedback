@@ -34,9 +34,10 @@ exports.sendFeedback = async (req, res) => {
         }); 
 
         res.status(201).json({ message: 'Feedback Sent', data: feedback });
-    } catch (err) {
-        res.status(500).json({ message: 'Failed To Send Feedback', error: err.message });
-    }
+    } catch (err) { // <--- Defined as 'err'
+    console.error("Gemini API Error:", err.message); // <--- Use 'err'
+    res.status(500).json({ message: 'Failed To Send Feedback', error: err.message });
+}
 };
 
 exports.getFeedback = async (req, res) => {
