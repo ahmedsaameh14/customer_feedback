@@ -18,7 +18,7 @@ module.exports = (Model)=> async (req,res,next)=>{
     try{
         const [result , total] = await Promise.all([
             // 3. Apply filter to find
-            Model.find(filter).sort({[sortBy]:order}).skip(skip).limit(limit),
+            Model.find(filter).sort({[sortBy]:order, _id: 1}).skip(skip).limit(limit),
             Model.countDocuments(filter) // 4. Count total with filter
         ]);
         
