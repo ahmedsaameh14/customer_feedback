@@ -43,7 +43,8 @@ exports.getFeedback = async (req, res) => {
     try {
         // Use the Model (Feedback) to find all documents
         const feedbacks = await Feedback.find(); 
-        res.status(200).json({ message: 'List of Feedbacks', data: feedbacks });
+        // res.status(201).json({ message: 'List of Feedbacks', data: feedbacks });
+        res.status(200).json(res.paginatedResult);
     } catch (err) {
         res.status(500).json({ message: 'Failed to get Feedbacks', error: err.message });
     }
